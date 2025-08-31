@@ -1,0 +1,19 @@
+@use "./variables" as *;
+
+.app {
+  font-family: var(--font-family);
+  color: $dark;
+  background: white;
+}
+
+main {
+  margin-top: 70px; // offset for fixed navbar
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: $light;
+  font-size: 0.9rem;
+  color: $muted;
+}

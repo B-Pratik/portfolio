@@ -1,0 +1,55 @@
+@use './variables' as *;
+
+/* Base styles */
+:root {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+  background: $dark;
+  color: $light;
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styling */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: $dark;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $neutral;
+  border-radius: 4px;
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: $neutral $dark; // Firefox
+}
+
+/* reserve stable gutter for scrollbars when supported */
+html {
+  scrollbar-gutter: stable both-edges;
+}
+
+/* make available a CSS variable for measured scrollbar width for fallback use */
+:root {
+  --scrollbar-width: 0px;
+}
+
+/* fallback safe padding for the site header links */
+.navbar {
+  padding-right: calc(1rem + var(--scrollbar-width)); /* keeps items away from the right edge */
+}
+
+/* more precise control for the link container */
+.navbar__links {
+  padding-right: calc(0.75rem + var(--scrollbar-width));
+}
+

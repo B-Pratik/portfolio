@@ -1,0 +1,50 @@
+@use '../../styles/variables' as *;
+
+.about {
+  padding: clamp(2rem, 6vw, 5rem) 0;
+  background: $neutral;  // muted blue-gray for variation
+  color: $dark;  
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.heading {
+  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+}
+
+.summary {
+  margin: 0 0 1.25rem 0;
+  max-width: 64ch;
+  color: rgba(27,38,59,0.92);
+}
+
+.stats {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 0.6rem;
+}
+
+.stat {
+  background: rgba(255,255,255,0.8);
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  min-width: 120px;
+  box-shadow: 0 6px 18px rgba(27,38,59,0.04);
+}
+.num {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.label {
+  font-size: 0.9rem;
+  color: rgba(27,38,59,0.6);
+}
