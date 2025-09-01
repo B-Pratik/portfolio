@@ -1,58 +1,165 @@
 @use "../../styles/variables" as *;
-@use "sass:color";
 
-.projects {
-  padding: 6rem 1.5rem;
+.projectsShowcase {
+  padding: clamp(2.25rem, 6vw, 5rem) 1rem;
+  background: transparent;
+  color: $primary-text;
 
-  &__container {
+  &__inner {
+    max-width: var(--max-width);
     margin: 0 auto;
   }
 
   &__title {
-    text-align: center;
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    margin-bottom: 3rem;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin: 0 0 0.25rem 0;
     color: $accent;
+    font-weight: 700;
   }
 
-  &__grid {
+  &__subtitle {
+    margin: 0 0 1.75rem 0;
+    color: $text-muted;
+    max-width: 72ch;
+  }
+
+  &__list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    gap: 2.25rem;
   }
 
-  &__card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    border-radius: 1rem;
-    background: white;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* each strip alternates layout for visual rhythm */
+  &__strip {
+    display: grid;
+    grid-template-columns: 1fr 460px;
+    gap: 1.5rem;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.01));
+    border-radius: 12px;
+    padding: 1rem;
+    border: 1px solid rgba(255,255,255,0.03);
+    box-shadow: 0 10px 22px rgba(2,6,23,0.6);
+    overflow: hidden;
 
-    &:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    &.is-image-first {
+      grid-template-columns: 460px 1fr;
+    }
+
+    @media (max-width: 980px) {
+      grid-template-columns: 1fr;
+      &.is-image-first {
+        grid-template-columns: 1fr;
+      }
     }
   }
 
-  &__card-title {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    color: $container;
+  &__media {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    a { display: block; }
+
+    .projectsShowcase__image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+      aspect-ratio: 16/9;
+      border: 1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 8px 18px rgba(2,6,23,0.5);
+      transition: transform 280ms ease, box-shadow 280ms ease;
+    }
+
+    a:hover .projectsShowcase__image,
+    a:focus .projectsShowcase__image {
+      transform: scale(1.02);
+      box-shadow: 0 14px 28px rgba(2,6,23,0.72);
+    }
   }
 
-  &__desc {
-    font-size: 1rem;
-    color: $second-accent;
-    line-height: 1.5;
+  &__meta {
+    padding: 0.5rem 1rem;
   }
 
-  .project-card {
-    background: color.adjust($container, $lightness: 5%);
-    border: 1px solid $second-accent;
+  &__projectTitle {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.125rem;
+    color: $primary-text;
+    font-weight: 700;
+  }
+
+  &__summary {
+    margin: 0 0 0.75rem 0;
+    color: $text-muted;
+    line-height: 1.6;
+    max-width: 62ch;
+  }
+
+  &__tech {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0 0 1rem 0;
+  }
+
+  &__techItem {
+    display: inline-block;
+    padding: 0.28rem 0.6rem;
+    background: rgba(255,255,255,0.02);
+    color: $primary-text;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    border: 1px solid rgba(255,255,255,0.02);
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  &__actionPrimary {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    background: linear-gradient(90deg, $accent, $second-accent);
+    color: $header;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 10px 22px rgba(255,209,102,0.06);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+
+  &__actionGhost {
+    display: inline-block;
+    padding: 0.5rem 0.9rem;
+    border-radius: 10px;
+    color: $primary-text;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: transparent;
+    transition: transform 180ms ease, background 180ms ease;
+  }
+
+  &__actionPrimary:hover,
+  &__actionGhost:hover {
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 720px) {
+    &__strip {
+      padding: 0.75rem;
+    }
+    &__meta {
+      padding: 0.5rem 0;
+    }
+    &__media {
+      margin-bottom: 0.6rem;
+    }
   }
 }

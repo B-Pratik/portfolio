@@ -1,7 +1,7 @@
 @use '../../styles/variables' as *;
 
 .about {
-  padding: clamp(2rem, 6vw, 5rem) 0;    
+  padding: clamp(2rem, 6vw, 5rem) 15px;    
 }
 
 .inner {
@@ -12,7 +12,8 @@
 }
 
 .heading {
-  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  color: $accent;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
   margin: 0 0 0.5rem 0;
   font-weight: 700;
 }
@@ -33,12 +34,15 @@
   border-radius: 12px;
   min-width: 120px;
   box-shadow: 0 6px 18px rgba(27,38,59,0.04);
+  background: $card;
 }
+
 .num {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent);
 }
+
 .label {
   font-size: 0.9rem;
 }

@@ -5,40 +5,41 @@ const highlights = [
   {
     title: "IoT Proxy Service",
     description:
-      "Built an HTTP to WebSocket proxy for IoT devices enabling reliable bi directional communication at scale",
+      "Engineered an HTTP → WebSocket proxy for IoT fleets, enabling reliable, low-latency, bi-directional communication at scale with reconnection and backpressure strategies",
     icon: "🌐",
   },
   {
     title: "React Component Library",
     description:
-      "Maintained and extended a custom component library on top of Ant Design improving design consistency and developer productivity",
+      "Created and maintained a modular component library with custom theming, improving UI consistency, developer productivity, and long-term maintainability",
     icon: "🧩",
   },
   {
-    title: "SVG Graphs with Animations",
+    title: "Interactive SVG Visualizations",
     description:
-      "Created complex interactive SVG based charts with smooth animations from scratch",
+      "Built complex, animated SVG-based charts and graphing components from scratch, optimized for performance and smooth user interaction",
     icon: "📈",
   },
   {
-    title: "Data Modeler Tool",
+    title: "Data Modeling Platform",
     description:
-      "Led frontend of Modeler app for managing data models with Monaco based query editor and AG Grid previews",
+      "Led frontend development of a modeling tool with Monaco-based query editor, schema visualization, and AG Grid previews for interactive data exploration",
     icon: "🛠️",
   },
   {
-    title: "Amenities Booking Portal",
+    title: "Booking & Scheduling Engine",
     description:
-      "Designed booking and waitlist algorithms for Friday Life portal improving resource allocation and user experience",
+      "Designed booking and waitlist algorithms to improve resource utilization and user experience, ensuring fairness and reducing conflicts",
     icon: "📅",
   },
   {
-    title: "Performance Optimization",
+    title: "Performance Engineering",
     description:
-      "Specialized in reducing bundle size implementing lazy loading and improving lighthouse scores across projects",
+      "Drove performance initiatives: bundle size reduction, tree-shaking, advanced code splitting, image optimization, caching strategies, and Lighthouse score improvements",
     icon: "⚡",
   },
 ];
+
 
 export default function WorkHighlights() {
   return (

@@ -1,65 +1,113 @@
 @use "../../styles/variables" as *;
 
-.skills {
-  padding: 6rem 1.5rem;
+.skillsSection {
+  padding: clamp(2rem, 6vw, 4.5rem) 1rem;
+  color: $primary-text;
 
-  &__container {
+  &__inner {
+    max-width: var(--max-width);
     margin: 0 auto;
   }
 
   &__title {
-    text-align: center;
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    margin-bottom: 3rem;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    margin: 0 0 0.5rem 0;
     color: $accent;
+    font-weight: 700;
   }
 
-  &__categories {
+  &__subtitle {
+    margin: 0 0 1.5rem 0;
+    color: $text-muted;
+    max-width: 72ch;
+    font-size: 1rem;
+  }
+
+  &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2.5rem;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    align-items: start;
   }
 
-  &__category {
-    background: $primary-text;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
+  &__tile {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+    border-radius: 12px;
+    padding: 1.25rem;
+    border: 1px solid rgba(255,255,255,0.03);
+    box-shadow: 0 8px 20px rgba(2,6,23,0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    color: $accent;
+
+    &:hover,
+    &:focus-within {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 28px rgba(2,6,23,0.72);
+      border-color: rgba($accent, 0.18);
+      outline: none;
+    }
   }
 
-  &__category:hover {
-    transform: translateY(-6px);
+  &__tileHeader {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
   }
 
-  &__category-title {
-    font-size: 1.25rem;
+  &__tileIcon {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: $container;
+    color: $accent;
+    flex: 0 0 36px;
+  }
+
+  &__tileTitle {
+    margin: 0;
+    font-size: 1rem;
+    color: $primary-text;
     font-weight: 600;
-    margin-bottom: 1rem;
-    
-    text-align: center;
   }
 
-  &__tags {
+  &__badges {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
+    gap: 0.5rem;
   }
 
-  &__tag {
-    padding: 0.5rem 1rem;
+  &__badge {
+    display: inline-block;
+    padding: 0.35rem 0.7rem;
     border-radius: 999px;
-    background: $accent;
-    
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 0.875rem;
+    background: rgba(255,255,255,0.02);
+    color: $primary-text;
+    border: 1px solid rgba(255,255,255,0.02);
+    transition: transform 180ms ease, background 180ms ease, color 180ms ease;
     cursor: default;
-    transition: background 0.3s ease, color 0.3s ease;
 
     &:hover {
-      background: $second-accent;
-      color: $primary-text;
+      transform: translateY(-3px) scale(1.02);
+      background: linear-gradient(90deg, rgba($accent, 0.14), rgba($second-accent, 0.06));
+      color: $header;
+      border-color: rgba($accent, 0.16);
+    }
+  }
+
+  // responsive tweaks
+  @media (max-width: 720px) {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__tile {
+      padding: 1rem;
     }
   }
 }

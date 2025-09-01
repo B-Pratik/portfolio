@@ -27,11 +27,15 @@
       font-weight: 500;
       color: $primary-text;
       transition: color 0.3s ease;
-        text-decoration: none;
+      text-decoration: none;
 
       &:hover {
         color: $accent;
       }
+    }
+
+    @media (max-width: 768px) {
+      display: none;
     }
   }
 }

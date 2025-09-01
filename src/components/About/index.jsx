@@ -1,33 +1,10 @@
-import { useEffect, useState } from "react";
-import { motion as m } from "motion/react"
+import { motion as m } from "motion/react";
 import styles from "./about.module.scss";
 
-/* small number animator - smooth & performant */
-function useCountTo(target, duration = 800) {
-  const [value, setValue] = useState(0);
-  useEffect(() => {
-    let raf;
-    const start = performance.now();
-    const from = 0;
-    const to = target;
-    function tick(now) {
-      const t = Math.min(1, (now - start) / duration);
-      const eased = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; // approximate easeInOut
-      setValue(Math.round(from + (to - from) * eased));
-      if (t < 1) raf = requestAnimationFrame(tick);
-    }
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [target, duration]);
-  return value;
-}
 
 export default function About() {
   // derive years from career start (2014)
   const years = new Date().getFullYear() - 2014;
-  const yearsCount = useCountTo(years);
-  const projectsCount = useCountTo(12); // placeholder, update to real
-  const componentsCount = useCountTo(140); // placeholder
 
   return (
     <section id="about" className={styles.about} aria-labelledby="about-title">
@@ -50,23 +27,118 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.6 }}
         >
-          Fullstack developer with {years}+ years of building performance-focused web applications, reusable component systems, and real-time integrations. I enjoy solving tricky front-end problems — rendering performance, architecture for scale, and delightful interactions.
+          I'm a Lead Frontend Engineer with {years}+ years of experience, and
+          JavaScript has been at the core of my work throughout. I genuinely
+          enjoy the language, not just writing with frameworks like React or
+          Angular, but understanding what the engine is doing beneath the
+          surface. I know when and why to use requestAnimationFrame,
+          requestIdleCallback, or queueMicrotask. I understand what happens when
+          you type a URL into the browser, how rendering works, and how the DOM,
+          CSSOM, and JavaScript execution interact to produce pixels. I can
+          trace rendering issues, break down long tasks, and know how
+          treeshaking and optimized bundles can make a huge difference. Metrics
+          like TTFB, FCP, and layout shifts are part of how I evaluate
+          performance. I also understand how delivery networks and caching
+          layers impact asset loading and time to first byte. I know the
+          difference between CORS and CSP, and how they affect real-world
+          applications. I test not just what works but how users behave, using
+          Testing Library to simulate the real world. I follow engineering
+          principles like modularity and separation of concerns, and apply
+          programming patterns such as composition and facade where they
+          simplify complexity. I also know the difference between localStorage,
+          sessionStorage, and when to use something like IndexedDB.
         </m.p>
 
         <div className={styles.stats}>
           <article className={styles.stat}>
-            <div className={styles.num}>{yearsCount}+</div>
-            <div className={styles.label}>Years experience</div>
+            <div className={styles.num}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                fill="currentColor"
+                height="28px"
+                width="28px"
+                version="1.0"
+                id="Layer_1"
+                viewBox="0 0 24 24"
+                enableBackground="new 0 0 24 24"
+                xmlSpace="preserve"
+              >
+                <g>
+                  <path d="M11.5,14c-0.3,0-0.5-0.2-0.5-0.5s0.2-0.5,0.5-0.5h1c0.3,0,0.5-0.2,0.5-0.5S12.8,12,12.5,12H12v-0.5c0-0.3-0.2-0.5-0.5-0.5   S11,11.2,11,11.5v0.6c-0.6,0.2-1,0.8-1,1.4c0,0.8,0.7,1.5,1.5,1.5c0.3,0,0.5,0.2,0.5,0.5S11.8,16,11.5,16h-1   c-0.3,0-0.5,0.2-0.5,0.5s0.2,0.5,0.5,0.5H11v0.5c0,0.3,0.2,0.5,0.5,0.5s0.5-0.2,0.5-0.5v-0.6c0.6-0.2,1-0.8,1-1.4   C13,14.7,12.3,14,11.5,14z" />
+                  <path d="M21,18c-0.8,0-1.6,0.4-2.2,0.9l-2.5-1.7c0.4-0.8,0.7-1.7,0.7-2.7c0-0.6-0.1-1.2-0.3-1.8l1.8-0.8c0.5,0.6,1.2,1.1,2,1.1   c1.4,0,2.5-1.1,2.5-2.5S21.9,8,20.5,8c-0.1,0-0.3,0-0.4,0l-0.6-1.4C19.8,6.3,20,5.9,20,5.5C20,4.7,19.3,4,18.5,4S17,4.7,17,5.5   S17.7,7,18.5,7c0,0,0.1,0,0.1,0l0.6,1.4C18.5,8.9,18,9.6,18,10.5c0,0.2,0,0.4,0.1,0.5l-1.8,0.8C15.4,10.1,13.6,9,11.5,9   C10,9,8.7,9.6,7.7,10.5L6.4,9.4C6.8,8.9,7,8.2,7,7.5c0-0.6-0.2-1.1-0.4-1.6l2.2-1.6C9.2,4.7,9.8,5,10.5,5c1.3,0,2.4-1.1,2.5-2.4   l2.2-0.4C15.4,2.7,15.9,3,16.5,3C17.3,3,18,2.3,18,1.5S17.3,0,16.5,0c-0.7,0-1.3,0.5-1.5,1.2l-2.2,0.4C12.5,0.7,11.6,0,10.5,0   C9.1,0,8,1.1,8,2.5c0,0.4,0.1,0.7,0.2,1L6,5.1C5.4,4.4,4.5,4,3.5,4C1.6,4,0,5.6,0,7.5S1.6,11,3.5,11c0.9,0,1.7-0.3,2.3-0.9l1.3,1.1   c-0.7,0.9-1.1,2-1.1,3.2c0,1.1,0.3,2,0.8,2.9l-1.7,1.3c-0.4-0.4-1-0.6-1.7-0.6C2.1,18,1,19.1,1,20.5S2.1,23,3.5,23S6,21.9,6,20.5   c0-0.4-0.1-0.7-0.2-1.1l1.7-1.3c1,1.1,2.5,1.8,4.1,1.8c1.7,0,3.2-0.8,4.2-2l2.5,1.7C18.1,20.1,18,20.6,18,21c0,1.7,1.3,3,3,3   s3-1.3,3-3S22.7,18,21,18z M18,5.5C18,5.2,18.2,5,18.5,5S19,5.2,19,5.5S18.8,6,18.5,6S18,5.8,18,5.5z M20.5,9   c0.8,0,1.5,0.7,1.5,1.5S21.3,12,20.5,12S19,11.3,19,10.5S19.7,9,20.5,9z M16.5,1C16.8,1,17,1.2,17,1.5S16.8,2,16.5,2S16,1.8,16,1.5   S16.2,1,16.5,1z M10.5,1C11.3,1,12,1.7,12,2.5S11.3,4,10.5,4S9,3.3,9,2.5S9.7,1,10.5,1z M3.5,22C2.7,22,2,21.3,2,20.5   S2.7,19,3.5,19S5,19.7,5,20.5S4.3,22,3.5,22z M3.5,10C2.1,10,1,8.9,1,7.5S2.1,5,3.5,5S6,6.1,6,7.5S4.9,10,3.5,10z M11.5,19   C9,19,7,17,7,14.5S9,10,11.5,10s4.5,2,4.5,4.5S14,19,11.5,19z M21,23c-1.1,0-2-0.9-2-2s0.9-2,2-2s2,0.9,2,2S22.1,23,21,23z" />
+                </g>
+              </svg>
+            </div>
+            <div className={styles.label}>Investment Banking</div>
+          </article>
+          <article className={styles.stat}>
+            <div className={styles.num}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                fill="currentColor"
+                version="1.1"
+                id="_x32_"
+                width="28px"
+                height="28px"
+                viewBox="0 0 512 512"
+                xmlSpace="preserve"
+              >
+                <g>
+                  <path d="M432.531,229.906c-9.906,0-19.125,2.594-27.313,6.375v-51.656c0-42.938-34.922-77.875-77.859-77.875h-51.641   c3.781-8.156,6.375-17.375,6.375-27.281C282.094,35.656,246.438,0,202.625,0c-43.828,0-79.484,35.656-79.484,79.469   c0,9.906,2.594,19.125,6.359,27.281H77.875C34.938,106.75,0,141.688,0,184.625l0.047,23.828H0l0.078,33.781   c0,23.031,8.578,36.828,12.641,42.063c12.219,15.797,27.094,18.172,34.891,18.172c11.953,0,23.141-4.953,33.203-14.703l0.906-0.422   l1.516-2.141c1.391-1.359,6.328-5.484,14.016-5.5c16.344,0,29.656,13.297,29.656,29.672c0,16.344-13.313,29.656-29.672,29.656   c-7.672,0-12.609-4.125-14-5.5l-1.516-2.141l-0.906-0.422c-10.063-9.75-21.25-14.703-33.203-14.703   c-7.797,0.016-22.672,2.375-34.891,18.172c-4.063,5.25-12.641,19.031-12.641,42.063L0,410.281h0.047L0,434.063   C0,477.063,34.938,512,77.875,512h54.563v-0.063l3.047-0.016c23.016,0,36.828-8.563,42.063-12.641   c15.797-12.219,18.172-27.094,18.172-34.891c0-11.953-4.953-23.141-14.688-33.203l-0.438-0.906l-2.125-1.516   c-1.375-1.391-5.516-6.328-5.516-14.016c0-16.344,13.313-29.656,29.672-29.656c16.344,0,29.656,13.313,29.656,29.656   c0,7.688-4.141,12.625-5.5,14.016l-2.125,1.516l-0.438,0.906c-9.75,10.063-14.703,21.25-14.703,33.203   c0,7.797,2.359,22.672,18.172,34.891c5.25,4.078,19.031,12.641,42.063,12.641l17,0.047V512h40.609   c42.938,0,77.859-34.938,77.859-77.875v-51.641c8.188,3.766,17.406,6.375,27.313,6.375c43.813,0,79.469-35.656,79.469-79.484   C512,265.563,476.344,229.906,432.531,229.906z M432.531,356.375c-19.031,0-37.469-22.063-37.469-22.063   c-3.344-3.203-6.391-4.813-9.25-4.813c-2.844,0-5.469,1.609-7.938,4.813c0,0-5.125,5.891-5.125,19.313v80.5   c0,25.063-20.313,45.391-45.391,45.391h-23.813l-33.797-0.078c-15.438,0-22.188-5.875-22.188-5.875   c-3.703-2.859-5.563-5.875-5.563-9.172c0-3.266,1.859-6.797,5.563-10.594c0,0,17.219-13.891,17.219-39.047   c0-34.313-27.844-62.156-62.156-62.156c-34.344,0-62.156,27.844-62.156,62.156c0,25.156,17.219,39.047,17.219,39.047   c3.688,3.797,5.531,7.328,5.531,10.594c0,3.297-1.844,6.313-5.531,9.172c0,0-6.766,5.875-22.203,5.875l-33.797,0.078H77.875   c-25.063,0-45.375-20.328-45.375-45.391l0.094-48.203h-0.047l0.016-9.422c0-15.422,5.875-22.203,5.875-22.203   c2.859-3.703,5.875-5.531,9.156-5.531s6.813,1.828,10.609,5.531c0,0,13.891,17.234,39.047,17.234   c34.313-0.016,62.156-27.844,62.156-62.156c-0.016-34.344-27.844-62.156-62.156-62.156c-25.156,0-39.047,17.219-39.047,17.219   c-3.797,3.688-7.328,5.531-10.609,5.531s-6.297-1.828-9.156-5.531c0,0-5.875-6.781-5.875-22.203v-1.156h0.031L32.5,184.625   c0-25.063,20.313-45.375,45.375-45.375h80.5c13.422,0,19.313-5.125,19.313-5.125c6.422-4.938,6.422-10.531,0-17.188   c0,0-22.063-18.438-22.063-37.469c0-25.953,21.047-46.984,47-46.984c25.938,0,46.984,21.031,46.984,46.984   c0,19.031-22.047,37.469-22.047,37.469c-6.438,6.656-6.438,12.25,0,17.188c0,0,5.875,5.125,19.281,5.125h80.516   c25.078,0,45.391,20.313,45.391,45.375v80.516c0,13.422,5.125,19.297,5.125,19.297c2.469,3.219,5.094,4.813,7.938,4.813   c2.859,0,5.906-1.594,9.25-4.813c0,0,18.438-22.047,37.469-22.047c25.938,0,46.969,21.047,46.969,46.984   C479.5,335.344,458.469,356.375,432.531,356.375z" />
+                </g>
+              </svg>
+            </div>
+            <div className={styles.label}>Component Library</div>
           </article>
 
           <article className={styles.stat}>
-            <div className={styles.num}>{projectsCount}+</div>
-            <div className={styles.label}>Projects & demos</div>
+            <div className={styles.num}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28px"
+                height="28px"
+                viewBox="0 0 1024 1024"
+                fill="currentColor"
+              >
+                <path
+                  fill="currentColor"
+                  d="m665.216 768 110.848 192h-73.856L591.36 768H433.024L322.176 960H248.32l110.848-192H160a32 32 0 0 1-32-32V192H64a32 32 0 0 1 0-64h896a32 32 0 1 1 0 64h-64v544a32 32 0 0 1-32 32H665.216zM832 192H192v512h640V192zM352 448a32 32 0 0 1 32 32v64a32 32 0 0 1-64 0v-64a32 32 0 0 1 32-32zm160-64a32 32 0 0 1 32 32v128a32 32 0 0 1-64 0V416a32 32 0 0 1 32-32zm160-64a32 32 0 0 1 32 32v192a32 32 0 1 1-64 0V352a32 32 0 0 1 32-32z"
+                />
+              </svg>
+            </div>
+            <div className={styles.label}>Data Engineering</div>
           </article>
 
           <article className={styles.stat}>
-            <div className={styles.num}>{componentsCount}+</div>
-            <div className={styles.label}>UI components</div>
+            <div className={styles.num}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="28px"
+                height="28px"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                fill="currentColor"
+                version="1.1"
+                id="Layer_1"
+                viewBox="0 0 32 32"
+                xmlSpace="preserve"
+              >
+                <g id="connected--ecosystem">
+                  <path
+                    id="connected--ecosystem_1_"
+                    d="M16,31.36c-1.25,0-2.276-0.978-2.355-2.208c-3.32-0.592-6.336-2.459-8.361-5.173   C4.914,24.22,4.473,24.36,4,24.36c-1.301,0-2.36-1.059-2.36-2.36c0-1.015,0.644-1.882,1.544-2.215   C2.823,18.562,2.64,17.289,2.64,16h0.72c0,1.241,0.179,2.466,0.533,3.643c0.821-0.038,1.584,0.363,2.032,0.992l4.11-2.055   l-2.353-4.411l0.636-0.339l2.361,4.427l15.074-7.537C25.68,10.494,25.64,10.251,25.64,10c0-0.568,0.202-1.09,0.538-1.498   c-1.905-2.58-4.751-4.359-7.887-4.936C18.036,4.595,17.105,5.36,16,5.36c-1.106,0-2.037-0.765-2.291-1.793   c-1.994,0.366-3.884,1.216-5.487,2.469L7.778,5.469c1.712-1.339,3.734-2.242,5.867-2.622C13.724,1.617,14.75,0.64,16,0.64   s2.276,0.977,2.355,2.207c3.318,0.592,6.335,2.459,8.361,5.173c0.37-0.24,0.811-0.38,1.284-0.38c1.302,0,2.36,1.059,2.36,2.36   c0,1.015-0.644,1.882-1.544,2.214c0.36,1.224,0.544,2.496,0.544,3.786h-0.72c0-1.242-0.179-2.466-0.532-3.643   c-0.806,0.054-1.584-0.363-2.032-0.993l-15.058,7.529l4.202,7.879c0.245-0.086,0.507-0.133,0.78-0.133   c1.105,0,2.036,0.765,2.291,1.793c1.992-0.365,3.883-1.214,5.487-2.468l0.443,0.566c-1.714,1.34-3.736,2.242-5.866,2.622   C18.276,30.384,17.25,31.36,16,31.36z M16,27.36c-0.904,0-1.64,0.735-1.64,1.64s0.736,1.64,1.64,1.64c0.904,0,1.64-0.735,1.64-1.64   S16.904,27.36,16,27.36z M5.823,23.497c1.904,2.579,4.75,4.359,7.886,4.936c0.133-0.535,0.448-0.999,0.876-1.32l-4.211-7.896   l-4.126,2.062C6.32,21.506,6.36,21.748,6.36,22C6.36,22.568,6.158,23.09,5.823,23.497z M4,20.36c-0.904,0-1.64,0.735-1.64,1.64   S3.096,23.64,4,23.64S5.64,22.904,5.64,22S4.904,20.36,4,20.36z M28,8.36c-0.904,0-1.64,0.736-1.64,1.64s0.735,1.64,1.64,1.64   s1.64-0.736,1.64-1.64S28.904,8.36,28,8.36z M16,1.36c-0.904,0-1.64,0.736-1.64,1.64S15.096,4.64,16,4.64   c0.904,0,1.64-0.736,1.64-1.64S16.904,1.36,16,1.36z M30,25.36h-4v-0.72h4V25.36z M31.36,24h-0.72v-4h0.721L31.36,24L31.36,24z    M25.36,24h-0.72v-4h0.721L25.36,24L25.36,24z M30,19.36h-4v-0.72h4V19.36z M6,13.36H2v-0.72h4V13.36z M7.36,12H6.64V8h0.72   C7.36,8,7.36,12,7.36,12z M1.36,12H0.64V8h0.72V12z M6,7.36H2V6.64h4V7.36z"
+                  />
+                </g>
+                <rect
+                  id="_Transparent_Rectangle"
+                  style={{ fill: "none" }}
+                  width="32"
+                  height="32"
+                />
+              </svg>
+            </div>
+            <div className={styles.label}>IoT Communication</div>
           </article>
         </div>
       </div>

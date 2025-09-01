@@ -1,61 +1,80 @@
+import React from "react";
 import { motion } from "framer-motion";
 import "./styles.scss";
 
 const projects = [
   {
-    title: "Modeler",
-    description:
-      "UI application for managing data models with Monaco powered query editor and AG Grid previews",
-    link: "#",
+    id: "svg-playground",
+    title: "Edit-it",
+    summary:
+      " A progressive web app for photo editing using Web Workers",
+    tech: ["Preact", "PWA", "Web Workers"],
+    demo: "https://b-pratik.github.io/edit-it/",
+    repo: "https://github.com/B-Pratik/edit-it",
   },
   {
-    title: "Friday Life Booking Portal",
-    description:
-      "Amenities booking and waitlist portal with optimized allocation algorithms",
-    link: "#",
-  },
-  {
-    title: "EZShield SPAs",
-    description:
-      "Multiple single page applications improving data access and security for clients",
-    link: "#",
-  },
-  {
-    title: "IoT Proxy Service",
-    description:
-      "Custom HTTP to WebSocket proxy enabling stable real time IoT device communication",
-    link: "#",
-  },
-  {
-    title: "Custom React Library",
-    description:
-      "Maintained React component library built on top of Ant Design for consistency and speed",
-    link: "#",
-  },
+    id: "realtime-dashboard",
+    title: "Call-it",
+    summary:
+      " A peer-to-peer video calling app built with React",
+    tech: ["WebRTC", "React", "Canvas"],
+    demo: "https://call-it.netlify.app/#/create",
+    repo: "https://github.com/B-Pratik/call-it",
+  }
 ];
 
-export default function Projects() {
+const stripVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.12, duration: 0.6, ease: "easeOut" },
+  }),
+};
+
+export default function ProjectsShowcase() {
   return (
-    <section className="projects" id="projects">
-      <div className="projects__container">
-        <h2 className="projects__title">Projects</h2>
-        <div className="projects__grid">
+    <section id="projects" className="projectsShowcase" aria-labelledby="projectsHeading">
+      <div className="projectsShowcase__inner container">
+        <h2 id="projectsHeading" className="projectsShowcase__title">Showcase</h2>
+
+        <div className="projectsShowcase__list" role="list">
           {projects.map((p, i) => (
-            <motion.a
-              key={p.title}
-              href={p.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="projects__card"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              whileHover={{ scale: 1.05 }}
+            <motion.article
+              key={p.id}
+              className="projectsShowcase__strip"
+              role="listitem"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              custom={i}
+              variants={stripVariants}
+              aria-labelledby={`proj-title-${p.id}`}
             >
-              <h3 className="projects__card-title">{p.title}</h3>
-              <p className="projects__desc">{p.description}</p>
-            </motion.a>
+              <div className="projectsShowcase__meta">
+                <h3 id={`proj-title-${p.id}`} className="projectsShowcase__projectTitle">{p.title}</h3>
+                <p className="projectsShowcase__summary">{p.summary}</p>
+
+                <ul className="projectsShowcase__tech" aria-label={`Technologies used in ${p.title}`}>
+                  {p.tech.map((t) => (
+                    <li key={t} className="projectsShowcase__techItem">{t}</li>
+                  ))}
+                </ul>
+
+                <div className="projectsShowcase__actions">
+                  {p.demo && (
+                    <a className="projectsShowcase__actionPrimary" href={p.demo} target="_blank" rel="noopener noreferrer">
+                      Live demo
+                    </a>
+                  )}
+                  {p.repo && (
+                    <a className="projectsShowcase__actionGhost" href={p.repo} target="_blank" rel="noopener noreferrer">
+                      View repo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>

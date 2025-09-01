@@ -31,28 +31,11 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.15, duration: 0.6 }}
         >
-          Frontend-focused fullstack developer — building performant UI, reusable component systems, and interactive visuals.
+          I build front end systems that scale. I turn tricky UI problems into reliable experiences.
         </motion.p>
-
-        <motion.div
-          className={styles.ctaRow}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.35, duration: 0.6 }}
-        >
-          <a className={styles.primary} href="#projects">View projects</a>
-          <a className={styles.secondary} href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-        </motion.div>
       </div>
 
-      <a className={styles.scroll} href="#about" aria-label="Scroll to about">
-        <motion.span
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration:1, ease: "easeInOut", repeat: Infinity }}
-        >
-          ↓
-        </motion.span>
-      </a>
+
     </header>
   );
 }
