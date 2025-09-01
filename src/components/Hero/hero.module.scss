@@ -9,14 +9,11 @@
   align-items: center;
   text-align: center;
   overflow: hidden;
-  background: $dark;
-  color: $light;
   font-family: var(--font-sans);
 
   &__bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, $accent, $secondary, $dark);
     background-size: 400% 400%;
     animation: gradientShift 12s ease infinite;
     z-index: -2;
@@ -38,11 +35,11 @@
     }
   }
 
-  h1,
-  h2,
-  p {
-    color: $light;
-  }
+  // h1,
+  // h2,
+  // p {
+  //   color: $primary-text;
+  // }
 
   a {
     text-decoration: none;
@@ -52,7 +49,7 @@
     position: absolute;
     bottom: 2rem;
     font-size: 2rem;
-    color: $muted;
+    color: $second-accent;
     pointer-events: none;
   }
 }

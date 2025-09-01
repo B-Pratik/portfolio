@@ -1,11 +1,10 @@
 @use "../../styles/variables" as *;
+@use "sass:color";
 
 .projects {
   padding: 6rem 1.5rem;
-  background: $light;
 
   &__container {
-    max-width: var(--max-width);
     margin: 0 auto;
   }
 
@@ -43,12 +42,17 @@
     font-size: 1.25rem;
     margin-bottom: 1rem;
     font-weight: 600;
-    color: $dark;
+    color: $container;
   }
 
   &__desc {
     font-size: 1rem;
-    color: $muted;
+    color: $second-accent;
     line-height: 1.5;
+  }
+
+  .project-card {
+    background: color.adjust($container, $lightness: 5%);
+    border: 1px solid $second-accent;
   }
 }

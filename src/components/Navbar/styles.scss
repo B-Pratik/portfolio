@@ -4,8 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: $dark;
-  color: $light;
+  background: $header;
   width: calc(100% - 2rem);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   display: flex;
@@ -26,7 +25,7 @@
 
     a {
       font-weight: 500;
-      color: $light;
+      color: $primary-text;
       transition: color 0.3s ease;
         text-decoration: none;
 

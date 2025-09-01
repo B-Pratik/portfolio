@@ -2,10 +2,8 @@
 
 .work {
   padding: 6rem 1.5rem;
-  background: $light;
 
   &__container {
-    max-width: var(--max-width);
     margin: 0 auto;
   }
 
@@ -47,12 +45,11 @@
   &__card-title {
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
-    color: $dark;
+    
   }
 
   &__desc {
     font-size: 1rem;
     line-height: 1.6;
-    color: $muted;
   }
 }

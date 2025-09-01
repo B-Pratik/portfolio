@@ -1,5 +1,5 @@
 import { useRef, useEffect } from "react";
-import styles from "./Particles.module.scss";
+import styles from "./particles.module.scss";
 
 /**
  * Lightweight, accessible canvas particle field.

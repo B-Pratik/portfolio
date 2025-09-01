@@ -2,11 +2,10 @@
 
 .contact {
   padding: 6rem 1.5rem;
-  background: white;
+
   text-align: center;
 
   &__container {
-    max-width: var(--max-width);
     margin: 0 auto;
   }
 
@@ -18,7 +17,6 @@
 
   &__subtitle {
     font-size: 1.1rem;
-    color: $muted;
     margin-bottom: 3rem;
   }
 
@@ -33,15 +31,28 @@
     padding: 0.75rem 1.5rem;
     border-radius: 999px;
     background: $accent;
-    color: $dark;
+      color: $container;
+    text-decoration: none;
+
     font-weight: 600;
     font-size: 1rem;
     transition: background 0.3s ease, transform 0.3s ease;
 
     &:hover {
-      background: $secondary;
-      color: white;
+      background: $second-accent;
       transform: translateY(-3px);
     }
+    &:visited {
+      color: $container;
+    }
+    &:hover,
+    &:active {
+      color: $accent;
+    }
+  }
+
+  input,
+  textarea {
+    background: $primary-text;
   }
 }

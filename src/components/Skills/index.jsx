@@ -25,7 +25,7 @@ export default function Skills() {
             >
               <h3 className="skills__category-title">{category}</h3>
               <div className="skills__tags">
-                {list.map((skill, j) => (
+                {list.map((skill) => (
                   <motion.span
                     key={skill}
                     className="skills__tag"

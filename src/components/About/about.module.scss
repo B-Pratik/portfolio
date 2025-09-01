@@ -1,9 +1,7 @@
 @use '../../styles/variables' as *;
 
 .about {
-  padding: clamp(2rem, 6vw, 5rem) 0;
-  background: $neutral;  // muted blue-gray for variation
-  color: $dark;  
+  padding: clamp(2rem, 6vw, 5rem) 0;    
 }
 
 .inner {
@@ -21,8 +19,6 @@
 
 .summary {
   margin: 0 0 1.25rem 0;
-  max-width: 64ch;
-  color: rgba(27,38,59,0.92);
 }
 
 .stats {
@@ -33,7 +29,6 @@
 }
 
 .stat {
-  background: rgba(255,255,255,0.8);
   padding: 1rem 1.1rem;
   border-radius: 12px;
   min-width: 120px;
@@ -46,5 +41,4 @@
 }
 .label {
   font-size: 0.9rem;
-  color: rgba(27,38,59,0.6);
 }
