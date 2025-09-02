@@ -2,66 +2,57 @@
 
 .hero {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  overflow: hidden;
-  font-family: var(--font-sans);
+  color: $primary-text;
+  padding: 6vh 0;
 
-  &__bg {
-    position: absolute;
-    inset: 0;
-    background-size: 400% 400%;
-    animation: gradientShift 12s ease infinite;
-    z-index: -2;
-  }
-
-  &__text {
-    h1 {
-      font-size: clamp(2rem, 5vw, 4rem);
-      font-weight: 700;
-    }
-
-    .highlight {
-      color: $accent;
-    }
-
-    p {
-      margin-top: 1rem;
-      font-size: clamp(1rem, 2vw, 1.5rem);
-    }
-  }
-
-  // h1,
-  // h2,
-  // p {
-  //   color: $primary-text;
-  // }
-
-  a {
-    text-decoration: none;
-  }
-
-  &__scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    font-size: 2rem;
-    color: $second-accent;
-    pointer-events: none;
+  .container {
+  margin: 0 auto;
+    position: relative;
+    z-index: 3;
+    text-align: center;
   }
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.title {
+  font-weight: 700;
+  font-size: clamp(2rem, 7vw, 3.6rem);
+  margin: 0 0 0.5rem 0;
+  line-height: 1.02;
+}
+
+.greeting {
+  display: block;
+  font-size: 1rem;
+  color: rgba($primary-text, 0.8);
+  margin-bottom: 0.5rem;
+}
+
+.nameWrap {
+  display: inline-block;
+  letter-spacing: -0.02em;
+}
+
+.letter {
+  display: inline-block;
+  color: $accent;
+  margin: 0 0.05em;
+}
+
+.underline {
+  width: min(60vw, 520px);
+  height: 24px;
+  margin: 0.7rem auto 1.25rem auto;
+  overflow: visible;
+}
+
+/* lead paragraph */
+.lead {
+  margin-top: 0.6rem;
+  color: $text-muted;
+  max-width: 62ch;
+  margin-left: auto;
+  margin-right: auto;
 }
