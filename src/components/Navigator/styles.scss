@@ -1,0 +1,48 @@
+@use "../../styles/variables" as *;
+
+.scrollNavigator {
+  position: fixed;
+  bottom: 1.8rem;
+  right: 20px;
+  background: $accent;
+  color: $header;
+  border: none;
+  border-radius: 50%;
+  padding: 0.8rem;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+  transition: background 250ms ease, transform 200ms ease;
+
+  &:hover {
+    background: $second-accent;
+    transform: translateX(-50%) scale(1.08); // maintain center on hover
+  }
+
+  svg {
+    display: block;
+    stroke: $header;
+  }
+
+  @media (max-width: 768px) {
+    bottom: 1rem;
+    padding: 0.6rem;
+
+    &:hover {
+      background: $accent;
+    }
+
+    &:active {
+      background: $second-accent;
+    }
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}

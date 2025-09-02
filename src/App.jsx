@@ -1,12 +1,13 @@
 import { useEffect } from "react";
-import { motion } from "motion/react"
+import { motion } from "motion/react";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import WorkHighlights from "./components/WorkHighlights";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
-import Navbar from './components/Navbar'
+import Navbar from "./components/Navbar";
+import Navigator from "./components/Navigator";
 import "./styles/app.scss";
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar/>
+      <Navbar />
 
       <main>
         <Hero />
@@ -28,8 +29,12 @@ function App() {
         <Contact />
       </main>
 
+      <Navigator />
+
       <footer className="footer">
-        <p>© {new Date().getFullYear()} Pratik Bhurewar. All Rights Reserved.</p>
+        <p>
+          © {new Date().getFullYear()} Pratik Bhurewar. All Rights Reserved.
+        </p>
       </footer>
     </div>
   );

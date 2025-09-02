@@ -1,6 +1,5 @@
 @use "./variables" as *;
 
-
 main {
   margin-top: 70px; // offset for fixed navbar
 }
@@ -10,4 +9,11 @@ main {
   padding: 2rem 1rem;
   background: $header;
   font-size: 0.9rem;
+}
+
+.app {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
