@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { motion } from "motion/react";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import WorkHighlights from "./components/WorkHighlights";

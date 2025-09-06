@@ -1,7 +1,8 @@
 @use "./variables" as *;
 
 main {
-  margin-top: 70px; // offset for fixed navbar
+  margin: 70px auto;
+  max-width: 1080px;
 }
 
 .footer {
@@ -12,7 +13,7 @@ main {
 }
 
 .app {
-  width: 100vw;
+  width: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;

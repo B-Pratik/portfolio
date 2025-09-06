@@ -29,35 +29,37 @@ export default function Navbar() {
 
   return (
     <header className="navbar">
-      <motion.div
-        className="navbar__brand"
-        initial={{ opacity: 0, y: -10 }}
-        animate={
-          activeSection === "hero"
-            ? { opacity: 0, y: -10, pointerEvents: "none" }
-            : { opacity: 1, y: 0 }
-        }
-        transition={{ duration: 0.5, ease: "easeOut" }}
-      >
+      <div className="navbar__content">
         <motion.div
-          animate={{ y: [0, -2, 0] }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
+          className="navbar__brand"
+          initial={{ opacity: 0, y: -10 }}
+          animate={
+            activeSection === "hero"
+              ? { opacity: 0, y: -10, pointerEvents: "none" }
+              : { opacity: 1, y: 0 }
+          }
+          transition={{ duration: 0.5, ease: "easeOut" }}
         >
-          Pratik Bhurewar
+          <motion.div
+            animate={{ y: [0, -2, 0] }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            Pratik Bhurewar
+          </motion.div>
         </motion.div>
-      </motion.div>
 
-      <nav className="navbar__links">
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Showcase</a>
-        <a href="#contact">Contact</a>
-      </nav>
+        <nav className="navbar__links">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Showcase</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </header>
   );
 }
