@@ -30,8 +30,9 @@
   &__button {
     padding: 0.75rem 1.5rem;
     border-radius: 999px;
-    background: $accent;
-      color: $container;
+    border: 1px solid $primary-text;
+    background: transparent;
+    color: $primary-text;
     text-decoration: none;
 
     font-weight: 600;
@@ -39,15 +40,17 @@
     transition: background 0.3s ease, transform 0.3s ease;
 
     &:hover {
-      background: $second-accent;
+      background: transparent;
       transform: translateY(-3px);
+      border: 1px solid $accent;
     }
     &:visited {
-      color: $container;
+      color: $primary-text;
     }
     &:hover,
     &:active {
-      color: $accent;
+    color: $primary-text;
+      border: 1px solid $accent;
     }
   }
 
