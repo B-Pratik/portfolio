@@ -17,7 +17,7 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Snapshot
+          About Me
         </m.h2>
 
         <m.p

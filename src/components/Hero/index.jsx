@@ -1,7 +1,6 @@
-import React, { Suspense, useMemo } from "react";
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import styles from "./hero.module.scss";
-const Particles = React.lazy(() => import("../Particles"));
 
 export default function Hero() {
   // Name broken into letters for staggered reveal
@@ -19,12 +18,6 @@ export default function Hero() {
   return (
     <section id="hero" className={styles.hero}>
       <div className={styles.bg} aria-hidden="true" />
-
-      <Suspense
-        fallback={<div className={styles.particlesFallback} aria-hidden />}
-      >
-        <Particles />
-      </Suspense>
 
       <div className={`${styles.container} container`} role="banner">
         <motion.h1
