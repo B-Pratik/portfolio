@@ -16,6 +16,11 @@
     font-weight: 700;
   }
 
+  &__logo {
+    height: 30px;
+    width: 30px;
+  }
+
   &__subtitle {
     margin: 0 0 1.5rem 0;
     color: $text-muted;
