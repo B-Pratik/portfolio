@@ -30,16 +30,30 @@
     position: relative;
     padding-top: 20px;
     margin-bottom: -40px;
+    @media only screen and (min-width: 768px) {
+      &:nth-child(odd) {
+        justify-content: right;
+        padding-right: 15%;
+        .work__card {
+          transform-origin: 0 100%;
+        }
+      }
+      &:nth-child(even) {
+        justify-content: left;
+        padding-left: 15%;
+        .work__card {
+          transform-origin: 0 -100%;
+        }
+      }
+    }
   }
 
   &__card {
-    font-size: 164;
     width: 300px;
     height: 300px;
     padding: 10px;
     border-radius: 20px;
     background: $card;
-    transform-origin: "10% 60%";
     @media (max-width: 768px) {
       width: 200px;
       height: 350px;
