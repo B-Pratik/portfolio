@@ -185,7 +185,7 @@ export default function Skills() {
                   info.hasIcons ? (
                     <span key={s} className="skillsSection__badge">
                       <img
-                        src={`/src/assets/logos/${s.toLowerCase()}.svg`}
+                        src={`/assets/logos/${s.toLowerCase()}.svg`}
                         alt={s}
                         title={s}
                         className="skillsSection__logo"
